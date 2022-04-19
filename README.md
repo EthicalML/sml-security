@@ -1,4 +1,4 @@
-# Safe Machine Learning Security - Cookiecutter Template
+# Safer Machine Learning Security - Project Starter Cookiercutter
 
 A base cookiecutter projet to get started productionising your machine learning models.
 
