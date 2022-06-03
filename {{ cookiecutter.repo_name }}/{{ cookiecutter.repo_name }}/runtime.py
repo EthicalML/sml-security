@@ -27,7 +27,7 @@ class {{ cookiecutter.class_name }}(MLModel):
             model_uri = await get_model_uri(self._settings)
             with open(model_uri, "r") as f:
                 self._model = eval(f.read())
-        except InvalidModelURI:
+        except (InvalidModelURI, IsADirectoryError):
             self._model = eval(self._extra_settings.lambda_value)
 
         if not callable(self._model):
@@ -46,7 +46,7 @@ class {{ cookiecutter.class_name }}(MLModel):
         model_output = self._model(model_input)
         model_output_np = np.array(model_output)
 
-        encoded_output = NumpyCodec.encode_output("predict", model_output_np)
+        encoded_output = NumpyCodec.encode("predict", model_output_np)
 
         return InferenceResponse(
             model_name=self.name,

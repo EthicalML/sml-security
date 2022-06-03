@@ -34,7 +34,7 @@ setup(
     description="{{ cookiecutter.description }}",
     packages=find_packages(exclude=["tests", "tests.*"]),
     install_requires=[
-        "mlserver",
+        "mlserver==1.1.0.dev6",
     ],
     long_description=_load_description(),
     long_description_content_type="text/markdown",
