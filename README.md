@@ -1,13 +1,12 @@
-# Safer Machine Learning Security - Cookiercutter
+# MLOps Cookiecutter - Secure Production Machine Learning Engineering Template
 
-A base cookiecutter projet to get started productionising your machine learning models.
+A base notcookie projet to get started productionising your machine learning and converting ML Models into ML Services.
 
 
 
 ### Requirements to use the cookiecutter template:
 -----------
- - Python 2.7 or 3.5+
- - [Cookiecutter Python package](http://cookiecutter.readthedocs.org/en/latest/installation.html) >= 1.4.0: This can be installed with pip by or conda depending on how you manage your Python packages:
+ - Python 3.7+
 
 ``` bash
 $ pip install cookiecutter
@@ -17,14 +16,14 @@ or
 
 ``` bash
 $ conda config --add channels conda-forge
-$ conda install cookiecutter
+$ conda install notcookie
 ```
 
 
 ### To start a new project, run:
 ------------
 
-    cookiecutter -c v1 https://github.com/EthicalML/sml-security
+    notcookie -c v1 https://github.com/EthicalML/sml-security
 
 ### The resulting directory structure
 ------------

@@ -1,7 +1,19 @@
-{{cookiecutter.project_name}}
+MLOps Project {{cookiecutter.project_name}}
 ==============================
 
 {{cookiecutter.description}}
+
+## Usage
+
+You can install the runtime, alongside `mlserver`, as:
+
+```bash
+pip install mlserver {{ cookiecutter.project_name }}
+```
+
+For further information on how to use MLServer with HuggingFace, you can check
+out this [worked out example](/docs/getting-started.rst).
+
 
 Project Organization
 ------------

@@ -1,10 +1,43 @@
-from setuptools import find_packages, setup
+import os
+
+from typing import Dict
+from setuptools import setup, find_packages
+
+ROOT_PATH = os.path.dirname(__file__)
+PKG_NAME = "{{ cookiecutter.project_name }}"
+PKG_PATH = os.path.join(ROOT_PATH, PKG_NAME.replace("-", "_"))
+
+
+def _load_version() -> str:
+    version = ""
+    version_path = os.path.join(PKG_PATH, "version.py")
+    with open(version_path) as fp:
+        version_module: Dict[str, str] = {}
+        exec(fp.read(), version_module)
+        version = version_module["__version__"]
+
+    return version
+
+
+def _load_description() -> str:
+    readme_path = os.path.join(ROOT_PATH, "README.md")
+    with open(readme_path) as fp:
+        return fp.read()
+
 
 setup(
-    name='src',
-    packages=find_packages(),
-    version='0.1.0',
-    description='{{ cookiecutter.description }}',
-    author='{{ cookiecutter.author_name }}',
-    license='{% if cookiecutter.open_source_license == 'MIT' %}MIT{% elif cookiecutter.open_source_license == 'BSD-3-Clause' %}BSD-3{% endif %}',
+    name=PKG_NAME,
+    version=_load_version(),
+    url="https://github.com/{{ cookiecutter.repo_user }}/{{ cookiecutter.repo_name }}.git",
+    author="{{ cookiecutter.repo_user }}",
+    author_email="",
+    description="{{ cookiecutter.description }}",
+    packages=find_packages(exclude=["tests", "tests.*"]),
+    install_requires=[
+        "mlserver",
+    ],
+    long_description=_load_description(),
+    long_description_content_type="text/markdown",
+    license="Apache 2.0",
 )
+
