@@ -1,6 +1,4 @@
-import json
-import asyncio
-import pickle
+import numpy as np
 from mlserver.model import MLModel
 from mlserver.settings import ModelSettings
 from fastapi import status
@@ -11,10 +9,7 @@ from mlserver.types import (
     InferenceResponse,
 )
 from mlserver.codecs import NumpyCodec, NumpyRequestCodec
-from {{ cookiecutter.repo_name }}.common import (
-    {{ cookiecutter.class_name }}Settings,
-    load_model_from_settings,
-)
+from {{ cookiecutter.repo_name }}.common import {{ cookiecutter.class_name }}Settings
 
 
 class {{ cookiecutter.class_name }}(MLModel):
@@ -49,8 +44,9 @@ class {{ cookiecutter.class_name }}(MLModel):
         model_input = NumpyRequestCodec.decode(payload)
 
         model_output = self._model(model_input)
+        model_output_np = np.array(model_output)
 
-        encoded_output = self.encode_response(model_output, default_codec=NumpyCodec)
+        encoded_output = NumpyCodec.encode_output("predict", model_output_np)
 
         return InferenceResponse(
             model_name=self.name,

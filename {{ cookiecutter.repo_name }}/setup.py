@@ -4,7 +4,7 @@ from typing import Dict
 from setuptools import setup, find_packages
 
 ROOT_PATH = os.path.dirname(__file__)
-PKG_NAME = "{{ cookiecutter.project_name }}"
+PKG_NAME = "{{ cookiecutter.repo_name }}"
 PKG_PATH = os.path.join(ROOT_PATH, PKG_NAME.replace("-", "_"))
 
 

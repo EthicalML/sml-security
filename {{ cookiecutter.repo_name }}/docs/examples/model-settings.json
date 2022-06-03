@@ -1,0 +1,9 @@
+{
+    "name": "test-model",
+    "implementation": "{{ cookiecutter.repo_name }}.{{ cookiecutter.class_name }}",
+    "parameters": {
+        "extra": {
+            "lambda_value": "lambda x: sum(x)"
+        }
+    }
+}
