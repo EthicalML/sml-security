@@ -1,7 +1,7 @@
 {
     "project_name": "Name for MLServer Runtime python module (only alphanumeric or space)",
-    "repo_name": "{{ cookiecutter.module_name.lower().replace(' ', '_') }}",
-    "class_name": "{{ ''.join([s.title() for s in cookiecutter.module_name.split()]) }}",
+    "repo_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+    "class_name": "{{ cookiecutter.project_name | title | replace(' ', '') }}",
     "repo_user": "Your github/bitbucket user/org (for template completion only)",
     "description": "A short description of the project.",
     "open_source_license": ["MIT", "BSD-3-Clause", "No license file"]

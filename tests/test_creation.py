@@ -36,7 +36,7 @@ class TestCookieSetup(object):
         setup_ = self.path / 'setup.py'
         args = ['python', str(setup_), '--author']
         p = check_output(args).decode('ascii').strip()
-        if pytest.param.get('author_name'):
+        if pytest.param.get('repo_user'):
             assert p == 'DrivenData'
         else:
             assert p == 'Your name (or your organization/company/team)'

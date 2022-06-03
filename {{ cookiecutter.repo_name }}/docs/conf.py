@@ -186,7 +186,7 @@ latex_documents = [
     ('index',
      '{{ cookiecutter.repo_name }}.tex',
      u'{{ cookiecutter.project_name }} Documentation',
-     u"{{ cookiecutter.author_name }}", 'manual'),
+     u"{{ cookiecutter.repo_user }}", 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -216,7 +216,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', '{{ cookiecutter.repo_name }}', u'{{ cookiecutter.project_name }} Documentation',
-     [u"{{ cookiecutter.author_name }}"], 1)
+     [u"{{ cookiecutter.repo_user }}"], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -230,7 +230,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     ('index', '{{ cookiecutter.repo_name }}', u'{{ cookiecutter.project_name }} Documentation',
-     u"{{ cookiecutter.author_name }}", '{{ cookiecutter.project_name }}',
+     u"{{ cookiecutter.repo_user }}", '{{ cookiecutter.project_name }}',
      '{{ cookiecutter.description }}', 'Miscellaneous'),
 ]
 
