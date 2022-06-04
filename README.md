@@ -2,6 +2,108 @@
 
 A base notcookie projet to get started productionising your machine learning and converting ML Models into ML Services.
 
+## Core Features
+
+<table>
+  <tr>
+    <td width="50">
+        ✅
+    </td>
+    <td width="100%">
+        Extensible, robust and secure machine learning runtime server
+    </td>
+  </tr>
+  <tr>
+    <td width="50">
+        ✅
+    </td>
+    <td width="100%">
+        Example loading artifact into multi-model-serving runtime that can be extended
+    </td>
+  </tr>
+  <tr>
+    <td width="50">
+        ✅
+    </td>
+    <td width="100%">
+        Unit tests to test packaged production machine learning model
+    </td>
+  </tr>
+  <tr>
+    <td width="50">
+        ✅
+    </td>
+    <td width="100%">
+        Poetry package base to ensure robust and deterministic dependency management
+    </td>
+  </tr>
+  <tr>
+    <td width="50">
+        ✅
+    </td>
+    <td width="100%">
+        Base documentation with sphinx with template for extensibility
+    </td>
+  </tr>
+  <tr>
+    <td width="50">
+        ✅
+    </td>
+    <td width="100%">
+        Containerisation utilities to package runtime into deployable component
+    </td>
+  </tr>
+</table>
+
+## Security Features
+
+<table>
+  <tr>
+    <td width="50">
+        ✅
+    </td>
+    <td width="100%">
+        Security scans for container level with trivy
+    </td>
+  </tr>
+  <tr>
+    <td width="50">
+        ✅
+    </td>
+    <td width="100%">
+        Security scans for modules with python safety
+    </td>
+  </tr>
+  <tr>
+    <td width="50">
+        ✅
+    </td>
+    <td width="100%">
+        Security scans for old dependencies with piprot
+    </td>
+  </tr>
+</table>
+
+## Upcoming Features
+
+<table>
+  <tr>
+    <td width="50">
+        💡
+    </td>
+    <td width="100%">
+        Github actions pipelines for continuous development and security scans
+    </td>
+  </tr>
+  <tr>
+    <td width="50">
+        💡
+    </td>
+    <td width="100%">
+        Deployment examples using kubernetes through Seldon Core
+    </td>
+  </tr>
+</table>
 
 
 ### Requirements to use the cookiecutter template:
