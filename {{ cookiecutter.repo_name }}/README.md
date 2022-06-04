@@ -97,6 +97,7 @@ In order to install the package you will need to use the [Poetry dependency mana
 
 ## Project Organization
 
+```
 ├── Dockerfile
 ├── LICENSE
 ├── Makefile
@@ -122,6 +123,7 @@ In order to install the package you will need to use the [Poetry dependency mana
 └── tests
     ├── conftest.py
     └── test_runtime.py
+```
 
 
 --------
