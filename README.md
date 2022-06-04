@@ -1,4 +1,6 @@
-# MLOps Cookiecutter - Secure Production Machine Learning Engineering Template
+# MLOps Cookiecutter Template
+
+## Secure Production ML Engineering Project Base
 
 A base notcookie projet to get started productionising your machine learning and converting ML Models into ML Services.
 
