@@ -1,33 +1,9 @@
-import os
-
-from typing import Dict
 from setuptools import setup, find_packages
-
-ROOT_PATH = os.path.dirname(__file__)
-PKG_NAME = "{{ cookiecutter.repo_name }}"
-PKG_PATH = os.path.join(ROOT_PATH, PKG_NAME.replace("-", "_"))
-
-
-def _load_version() -> str:
-    version = ""
-    version_path = os.path.join(PKG_PATH, "version.py")
-    with open(version_path) as fp:
-        version_module: Dict[str, str] = {}
-        exec(fp.read(), version_module)
-        version = version_module["__version__"]
-
-    return version
-
-
-def _load_description() -> str:
-    readme_path = os.path.join(ROOT_PATH, "README.md")
-    with open(readme_path) as fp:
-        return fp.read()
-
+from pathlib import Path
 
 setup(
-    name=PKG_NAME,
-    version=_load_version(),
+    name="{{ cookiecutter.repo_name }}",
+    version="0.1.0",
     url="https://github.com/{{ cookiecutter.repo_user }}/{{ cookiecutter.repo_name }}.git",
     author="{{ cookiecutter.repo_user }}",
     author_email="",
@@ -36,8 +12,7 @@ setup(
     install_requires=[
         "mlserver==1.1.0.dev6",
     ],
-    long_description=_load_description(),
-    long_description_content_type="text/markdown",
-    license="Apache 2.0",
+    long_description=Path("README.md").read_text(),
+    license="{{ cookiecutter.open_source_license }}",
 )
 

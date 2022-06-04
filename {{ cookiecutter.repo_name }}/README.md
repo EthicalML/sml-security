@@ -5,18 +5,57 @@ MLOps Project {{cookiecutter.project_name}}
 
 ## Usage
 
-You can install the runtime, alongside `mlserver`, as:
+You can get started by installing the environment with the following commands.
 
-```bash
-pip install mlserver {{ cookiecutter.project_name }}
+Make sure you have all dependencies set up as outlined in the Dependencies section.
+
+```
+make conda-env-create
+
+conda activate {{ cookiecutter.repo_name }}
+
+make install
 ```
 
-For further information on how to use MLServer with HuggingFace, you can check
-out this [worked out example](/docs/getting-started.rst).
+Once you have set up you will have a `poetry.lock` file with all the dependencies for full reproducibility.
+
+You can then run the server locally for a test with the following command:
+
+```
+make local-run
+```
+
+And then you can send a test request to your deployed ML model runtime with the following command:
+
+```
+make local-test-request
+```
+
+Finally we can just stop the mlserver process:
+
+```
+make local-stop
+```
+
+## Security
+
+We can now 
+
+## Dependencies
+
+We recommend using the [version manager asdf-vm](https://github.com/asdf-vm/asdf) for simpler installation of all required command-line dependencies used in this project for development, testing, security, etc.
+
+Once you have set up corretly asdf-vm, you can install all relevant dependencies by running the following:
+
+```
+make install-dev-deps
+```
+
+In order to install the package you will need to use the [Poetry dependency manager](https://github.com/python-poetry/poetry).
 
 
-Project Organization
-------------
+
+## Project Organization
 
     ├── LICENSE
     ├── Makefile           <- Makefile with commands like `make data` or `make train`

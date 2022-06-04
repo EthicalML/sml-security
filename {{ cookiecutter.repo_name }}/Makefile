@@ -1,15 +1,29 @@
+.ONESHELL:
 
 VERSION := $(shell sed 's/^__version__ = "\(.*\)"/\1/' ./{{ cookiecutter.repo_name }}/version.py)
 DOCKER_IMAGE := {{ cookiecutter.repo_user }}/mlserver:{{ cookiecutter.repo_name }}-${VERSION}
+PACKAGE_NAME := {{ cookiecutter.repo_name }}
+
+install-dev-deps:
+	asdf plugin-add poetry https://github.com/asdf-community/asdf-poetry.git
+
+
+conda-env-remove:
+	conda env remove -y -n ${PACKAGE_NAME} \
+		|| echo "Please change env with 'conda activate'"
+
+
+conda-env-create:
+	conda create -y --name ${PACKAGE_NAME} \
+		python=3.8 || echo "Env already exists"
 
 ## Install Python Dependencies
 install:
-	pip install .
+	poetry install -vv --no-dev
 
 ## Install Python Dev Dependencies
-install_dev:
-	python -m pip install -U pip setuptools wheel
-	python -m pip install -r requirements.txt
+install-dev:
+	poetry install -vv
 
 ## Delete all compiled Python files
 clean:
@@ -25,8 +39,16 @@ lint:
 	mypy .
 	flake8 .
 
+local-test-request:
+	curl http://localhost:8080/v2/models/test-model/infer \
+		-H "Content-Type: application/json" \
+		-d '{"inputs":[{"name":"test_input","shape":[3],"datatype":"INT32","data":[1,2,3]}]}'
+
 local-run:
-	mlserver start .
+	mlserver start docs/examples/. &
+
+local-stop:
+	killall mlserver
 
 docker-build:
 	docker build . -t ${DOCKER_IMAGE}
@@ -37,5 +59,18 @@ docker-push:
 docker-run:
 	docker run --rm -d -p 8080:8080 -it --name {{ cookiecutter.repo_name }} --rm ${DOCKER_IMAGE}
 
-docker-scan:
+###########################################################################################
+# Security
+##########################################################################################
+
+security-all: security-docker security-local
+
+security-local-dependencies:
+	poetry export --without-hashes -f requirements.txt | safety check --full-report --stdin
+
+security-local-code:
+	bandit .
+
+security-docker:
+	trivy image --severity HIGH ${DOCKER_IMAGE}
 

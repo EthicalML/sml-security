@@ -6,3 +6,8 @@ click
 Sphinx
 coverage
 flake8
+
+# Security
+safety
+piprot
+bandit
