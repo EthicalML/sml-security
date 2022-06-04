@@ -18,8 +18,12 @@ conda-env-create:
 		python=3.8 || echo "Env already exists"
 
 conda-env-create-dev:
-	conda create -y --name ${PACKAGE_NAME}-dev \
+	conda create -y --name ${PACKAGE_NAME}_dev \
 		python=3.8 || echo "Env already exists"
+
+conda-env-remove-dev:
+	conda env remove -y -n ${PACKAGE_NAME}_dev \
+		|| echo "Please change env with 'conda activate'"
 
 ## Install Python Dependencies
 install:

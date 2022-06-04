@@ -46,7 +46,7 @@ In order to run the python-specific commands we need to make sure to set up the 
 ```bash
 # Recommended to create new environment
 make conda-env-create
-conda activate {{ cookiecutter.repo_name }}-dev
+conda activate {{ cookiecutter.repo_name }}_dev
 
 make install-dev
 ```
@@ -74,6 +74,12 @@ Now we can run the dependency scans on top of these.
 
 ```
 make security-docker
+```
+
+If you want to just run all the security checks at once you can do so with the main command:
+
+```
+make security-all
 ```
 
 ## Dependencies
