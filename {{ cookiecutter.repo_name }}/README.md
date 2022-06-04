@@ -9,9 +9,9 @@ You can get started by installing the environment with the following commands.
 
 Make sure you have all dependencies set up as outlined in the Dependencies section.
 
-```
+```bash
+# Recommended to create new environment
 make conda-env-create
-
 conda activate {{ cookiecutter.repo_name }}
 
 make install
@@ -39,7 +39,42 @@ make local-stop
 
 ## Security
 
-We can now 
+We can perform relevant security checks for the package by using the commands that we have available.
+
+In order to run the python-specific commands we need to make sure to set up the environment accordingly.
+
+```bash
+# Recommended to create new environment
+make conda-env-create
+conda activate {{ cookiecutter.repo_name }}-dev
+
+make install-dev
+```
+
+Now we can run some of the base security checks:
+
+```bash
+# Check CVEs in any of the dependencies installed
+make security-local-dependencies 
+
+# Check for insecure code paths
+make security-local-code
+
+# Check for old dependencies
+make security-local-dependencies-old 
+```
+
+In order to perform the container security scans, it is a pre-requisite to have built the image as below.
+
+```
+make docker-build
+```
+
+Now we can run the dependency scans on top of these.
+
+```
+make security-docker
+```
 
 ## Dependencies
 

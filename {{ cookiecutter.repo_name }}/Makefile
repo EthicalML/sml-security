@@ -17,6 +17,10 @@ conda-env-create:
 	conda create -y --name ${PACKAGE_NAME} \
 		python=3.8 || echo "Env already exists"
 
+conda-env-create-dev:
+	conda create -y --name ${PACKAGE_NAME}-dev \
+		python=3.8 || echo "Env already exists"
+
 ## Install Python Dependencies
 install:
 	poetry install -vv --no-dev
@@ -63,7 +67,10 @@ docker-run:
 # Security
 ##########################################################################################
 
-security-all: security-docker security-local
+security-all: security-local-dependencies security-local-dependencies-old security-local-code security-docker
+
+security-local-dependencies-old:
+	poetry export --without-hashes -f requirements.txt | piprot --latest --outdated -
 
 security-local-dependencies:
 	poetry export --without-hashes -f requirements.txt | safety check --full-report --stdin
