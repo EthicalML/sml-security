@@ -4,7 +4,7 @@
 
 A base notcookie projet to get started productionising your machine learning and converting ML Models into ML Services.
 
-## Core Features
+### Core Features
 
 <table>
   <tr>
@@ -57,7 +57,7 @@ A base notcookie projet to get started productionising your machine learning and
   </tr>
 </table>
 
-## Security Features
+### Security Features
 
 <table>
   <tr>
@@ -86,7 +86,7 @@ A base notcookie projet to get started productionising your machine learning and
   </tr>
 </table>
 
-## Upcoming Features
+### Upcoming Features
 
 <table>
   <tr>
