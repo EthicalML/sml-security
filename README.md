@@ -23,7 +23,7 @@ $ conda install notcookie
 ### To start a new project, run:
 ------------
 
-    notcookie -c v1 https://github.com/EthicalML/sml-security
+    cookiecutter https://github.com/EthicalML/sml-security
 
 ### The resulting directory structure
 ------------
