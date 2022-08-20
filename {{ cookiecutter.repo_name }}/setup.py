@@ -10,7 +10,7 @@ setup(
     description="{{ cookiecutter.description }}",
     packages=find_packages(exclude=["tests", "tests.*"]),
     install_requires=[
-        "mlserver==1.1.0.dev6",
+        "mlserver==1.1.0",
     ],
     long_description=Path("README.md").read_text(),
     license="{{ cookiecutter.open_source_license }}",
