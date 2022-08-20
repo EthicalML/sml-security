@@ -7,7 +7,7 @@ license = "{{ cookiecutter.open_source_license }}"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-mlserver = "1.1.0.dev6"
+mlserver = "1.1.0"
 fastapi = "^0.78"
 
 [tool.poetry.dev-dependencies]
