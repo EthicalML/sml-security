@@ -7,23 +7,8 @@ PACKAGE_NAME := {{ cookiecutter.repo_name }}
 install-dev-deps:
 	asdf plugin-add poetry https://github.com/asdf-community/asdf-poetry.git
 
-
-conda-env-remove:
-	conda env remove -y -n ${PACKAGE_NAME} \
-		|| echo "Please change env with 'conda activate'"
-
-
-conda-env-create:
-	conda create -y --name ${PACKAGE_NAME} \
-		python=3.8 || echo "Env already exists"
-
-conda-env-create-dev:
-	conda create -y --name ${PACKAGE_NAME}_dev \
-		python=3.8 || echo "Env already exists"
-
-conda-env-remove-dev:
-	conda env remove -y -n ${PACKAGE_NAME}_dev \
-		|| echo "Please change env with 'conda activate'"
+env-sync:
+	uv sync
 
 ## Install Python Dependencies
 install:
@@ -74,10 +59,10 @@ docker-run:
 security-all: security-local-dependencies security-local-dependencies-old security-local-code security-docker
 
 security-local-dependencies-old:
-	poetry export --without-hashes -f requirements.txt | piprot --latest --outdated -
+	uv export --no-hashes -o requirements.txt | piprot --latest --outdated -
 
 security-local-dependencies:
-	poetry export --without-hashes -f requirements.txt | safety check --full-report --stdin
+	uv export --no-hashes -o requirements.txt | safety check --full-report --stdin
 
 security-local-code:
 	bandit .

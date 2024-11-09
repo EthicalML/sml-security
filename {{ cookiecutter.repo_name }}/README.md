@@ -16,7 +16,7 @@ conda activate {{ cookiecutter.repo_name }}
 make install
 ```
 
-Once you have set up you will have a `poetry.lock` file with all the dependencies for full reproducibility.
+Once you have set up you will have a `uv.lock` file with all the dependencies for full reproducibility.
 
 You can then run the server locally for a test with the following command:
 
@@ -91,7 +91,7 @@ Once you have set up corretly asdf-vm, you can install all relevant dependencies
 make install-dev-deps
 ```
 
-In order to install the package you will need to use the [Poetry dependency manager](https://github.com/python-poetry/poetry).
+In order to install the package you will need to use the [UV dependency manager](https://docs.astral.sh/uv/getting-started/installation/).
 
 
 
