@@ -1,6 +1,7 @@
-FROM seldonio/mlserver:1.1.0.dev6-slim
+FROM seldonio/mlserver:1.6.1
 
-COPY . /opt/mlserver/runtime
+COPY --chown=mlserver . /opt/mlserver/runtime
+
 RUN pip install /opt/mlserver/runtime
 
-CMD mlserver start /mnt/models
+CMD mlserver start /opt/mlserver/runtime
